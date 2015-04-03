@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var Beer = require('./models/beer');
 
 mongoose.connect('mongodb://localhost/beerlocker', function (err) {
     if (err) {
