@@ -40,6 +40,13 @@ beersRoute.post(function (req, res) {
     });
 });
 
+beersRoute.get(function (req, res) {
+    Beer.find(function (err, beers) {
+        if (err) { res.send(err); }
+        res.json(beers);
+    });
+});
+
 app.use('/api', router);
 
 app.listen(port);
