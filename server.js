@@ -47,6 +47,15 @@ beersRoute.get(function (req, res) {
     });
 });
 
+var beerRoute = router.route('/beers/:beer_id');
+
+beerRoute.get(function (req, res) {
+    Beer.findById(req.params.beer_id, function (err, beer) {
+        if (err) { res.send(err); }
+        res.json(beer);
+    });
+});
+
 app.use('/api', router);
 
 app.listen(port);
