@@ -1,4 +1,13 @@
 var express = require('express');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/beerlocker', function (err) {
+    if (err) {
+        console.log('connection error', err);
+    } else {
+        console.log('connection successful');
+    }
+});
 
 var app = express();
 
