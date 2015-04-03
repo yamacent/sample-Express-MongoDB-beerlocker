@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 var Beer = require('./models/beer');
 
 mongoose.connect('mongodb://localhost/beerlocker', function (err) {
@@ -11,6 +12,10 @@ mongoose.connect('mongodb://localhost/beerlocker', function (err) {
 });
 
 var app = express();
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 var port = process.env.PORT || 3000;
 
